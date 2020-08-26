@@ -21,7 +21,7 @@ import (
 	"strings"
 	"time"
 
-	"gnetis.com/golang/core/golib/uclog"
+	"github.com/Bin-DuS/comm/core/uclog"
 
 	"github.com/mozillazg/go-pinyin"
 )

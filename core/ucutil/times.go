@@ -2,7 +2,7 @@ package ucutil
 
 import (
 	"fmt"
-	"gnetis.com/golang/core/golib/uclog"
+	"github.com/Bin-DuS/comm/core/uclog"
 	"strings"
 	"time"
 )

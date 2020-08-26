@@ -3,7 +3,7 @@ package ucutil
 import (
 	"encoding/binary"
 	"fmt"
-	"gnetis.com/golang/core/golib/uclog"
+	"github.com/Bin-DuS/comm/core/uclog"
 	"net"
 
 	"github.com/astaxie/beego/orm"

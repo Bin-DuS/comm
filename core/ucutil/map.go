@@ -3,7 +3,7 @@ package ucutil
 import (
 	"encoding/json"
 	"fmt"
-	"gnetis.com/golang/core/golib/uclog"
+	"github.com/Bin-DuS/comm/core/uclog"
 	"reflect"
 	"sort"
 	"strings"

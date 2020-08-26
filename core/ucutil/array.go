@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"gnetis.com/golang/core/golib/uclog"
+	"github.com/Bin-DuS/comm/core/uclog"
 )
 
 func Int64SliceToStringSlice(iArr []int64) []string {
