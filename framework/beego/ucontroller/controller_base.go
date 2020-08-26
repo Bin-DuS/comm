@@ -5,9 +5,9 @@ import (
 	"strconv"
 	"strings"
 
-	"comm/core/ucerror"
-	"comm/core/uclog"
-	"comm/core/ucutil"
+	"github.com/Bin-DuS/comm/core/ucerror"
+	"github.com/Bin-DuS/comm/core/uclog"
+	"github.com/Bin-DuS/comm/core/ucutil"
 	"github.com/astaxie/beego"
 )
 
