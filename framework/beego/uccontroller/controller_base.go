@@ -1,9 +1,13 @@
 package uccontroller
 
 import (
+	"github.com/astaxie/beego/context"
+	"net/http"
+	"net/url"
 	"reflect"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/Bin-DuS/comm/core/ucerror"
 	"github.com/Bin-DuS/comm/core/uclog"
@@ -37,7 +41,27 @@ type Controller struct {
 	SessionID  string
 	Rsp ResponseParams
 }
+type fakeResponseWriter struct{}
 
+func (f *fakeResponseWriter) Header() http.Header {
+	return http.Header{}
+}
+func (f *fakeResponseWriter) Write(b []byte) (int, error) {
+	return 0, nil
+}
+func (f *fakeResponseWriter) WriteHeader(n int) {}
+func (this *Controller) TestData(body string){
+	this.Ctx = &context.Context{
+		Request: &http.Request{URL: &url.URL{Scheme: "http", Host: "localhost", Path: "/"}},
+		ResponseWriter:&context.Response{&fakeResponseWriter{},true,http.StatusOK,time.Nanosecond},
+	}
+	this.Ctx.Output = &context.BeegoOutput{Context: this.Ctx}
+	this.Ctx.Input = &context.BeegoInput{Context: &context.Context{Request: this.Ctx.Request}}
+	this.Ctx.Request.Header = http.Header{}
+	this.Ctx.Request.Header.Set("Content-Type","application/json")
+	this.Ctx.Input.RequestBody = []byte(body)
+
+}
 // http_outputtype可以为.json(参见beego/mime.go，表示application/json)，或者"application/json; charset=utf-8"
 func (controller *Controller) InitContentType() {
 	if beego.AppConfig != nil {
