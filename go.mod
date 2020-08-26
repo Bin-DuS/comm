@@ -1,4 +1,4 @@
-module comm
+module github.com/Bin-DuS/comm
 
 go 1.14
 
